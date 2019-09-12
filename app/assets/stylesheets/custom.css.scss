@@ -3,15 +3,51 @@
 * {
   margin: 0;
   box-sizing: border-box;
+
 }
 
 html {
   overflow: auto;
 }
 
+
+header {
+  width: 100vw;
+  height: 20vh;
+}
+
 #navbar {
   box-shadow: 2px 2px 7px rgba( 0, 0, 0, 0.5);
-  margin-bottom: 15vh;
+  
+}
+
+#navbar-logo {
+  font-size: 1.3em;
+  font-style: italic;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+.menu {
+  background: rgba( 128, 0, 0, 0.6);
+}
+
+.banner-header {
+  text-align: center;
+
+}
+
+#banner {
+  background: asset-url("garage.jpg");
+  background-size: cover;
+  background-position: top 40% left 10%;
+  border-radius: 1rem;
+  box-shadow: 10px 10px 40px black;
+}
+
+main {
+  width: 100vw;
+  height: 70vh;
 }
 
 .field_with_errors {
@@ -20,7 +56,25 @@ html {
 }
 
 .footer {
-  border-top: 1px rgba( 0, 0, 0, 0.5);
-  margin-top: 15vh;
+  background: black;
+  box-shadow: 2px 2px 7px 6px rgba( 0, 0, 0, 0.4);
+  color: white;
+  width:  100vw;
+  height: 5vh;
+  margin-top: 8vh;
   text-align: center;
+}
+
+
+
+@media only screen and (min-width: 970px) {
+  #banner {
+    width: 70vw;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #banner {
+    width: 70vw;
+  }
 }
