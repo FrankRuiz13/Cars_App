@@ -1,29 +1,32 @@
 
   <div class="ui top inverted menu" id="navbar">
     <div class="ui container">
-      <a href="#" class="item" id="navbar-logo"><strong>Cars</strong></a>
-        <%= link_to "Home", root_path, class: "item" %>
-          <a class="item">
-            About
-          </a>
-          <div class="right menu">
-            <% unless user_signed_in?  %>
-            <%= link_to  new_user_registration_path ,class: "item" do%>
-              <i class="signup icon"></i> Sign Up
-            <% end %>
-            <%= link_to  new_user_session_path, class: "item" do %>
-              <i class="sign in icon"></i> Login
-            <% end %>
-            <% else %>
-            <%= link_to  edit_user_registration_path , class: "item" do %>
-              <i class="settings icon"></i> Settings
-            <% end %>
+      <%= link_to 'Cars', root_path, class: "item", id: "navbar-logo" %>
+        <%= link_to "Cars for sale", cars_for_sale_path, class: "item" %>
+          <% if current_user %>
+            <%= link_to "My Profile", my_profile_path, class: "item" %>
+              <div class="right menu">
+                <li class="item">
+                  <i class="user icon"></i>
+                  <%= current_user.full_name.present? ? current_user.full_name : current_user.email %>
+                </li>
+                <% unless user_signed_in?  %>
+                <%= link_to  new_user_registration_path ,class: "item" do%>
+                  <i class="signup icon"></i> Sign Up
+                <% end %>
+                <%= link_to  new_user_session_path, class: "item" do %>
+                  <i class="sign in icon"></i> Login
+                <% end %>
+                <% else %>
+                <%= link_to  edit_user_registration_path , class: "item" do %>
+                  <i class="settings icon"></i> Settings
+                <% end %>
 
-            <%= link_to  destroy_user_session_path ,method: :delete, data: {confirm: "Are you sure?"}, class: "item" do %>
-              <i class="sign out icon"></i> Logout
-            <% end %>
-
-          <% end %>
+                <%= link_to  destroy_user_session_path ,method: :delete, data: {confirm: "Are you sure?"}, class: "item" do %>
+                  <i class="sign out icon"></i> Logout
+                <% end %>
+              <% end %>
+              <% end %>
       </div>
     </div>
   </div>

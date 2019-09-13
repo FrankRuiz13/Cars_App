@@ -4,8 +4,8 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-//= require semantic-ui
-//= require jquery
+require ("semantic-ui").start()
+ require ("jquery").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
@@ -19,8 +19,3 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 
-$(document).on('turbolinks:load', function() {
-  $('.message .close').on('click', function() {
-    $(this).closest('.message').transition('fade');
-  });
-})
